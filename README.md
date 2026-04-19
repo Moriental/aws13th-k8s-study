@@ -28,8 +28,8 @@ AWS 13기 Kubernetes 스터디 레포지터리입니다.
       <code>godonghi/</code>
     </td>
     <td align="center">
-      <a href="https://github.com/TODO-USERNAME">
-        <img src="https://github.com/TODO-USERNAME.png" width="100px;" alt=""/>
+      <a href="https://github.com/jentlefish">
+        <img src="https://github.com/jentlefish.png" width="100px;" alt=""/>
         <br />
         <sub><b>허성우</b></sub>
       </a>
