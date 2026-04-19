@@ -6,11 +6,38 @@ AWS 13기 Kubernetes 스터디 레포지터리입니다.
 각자 주어진 토픽을 정리하고 발표하며, 함께 실습하는 방식으로 진행합니다.
 
 ## Team
-| Name | Directory |
-|------|-----------|
-| 김영우 | `kimyoungwoo/` |
-| 고동희 | `godonghi/` |
-| 허성우 | `heoseongwoo/` |
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Moriental">
+        <img src="https://github.com/Moriental.png" width="100px;" alt=""/>
+        <br />
+        <sub><b>김영우</b></sub>
+      </a>
+      <br />
+      <code>kimyoungwoo/</code>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Donghee01">
+        <img src="https://github.com/Donghee01.png" width="100px;" alt=""/>
+        <br />
+        <sub><b>고동희</b></sub>
+      </a>
+      <br />
+      <code>godonghi/</code>
+    </td>
+    <td align="center">
+      <a href="https://github.com/TODO-USERNAME">
+        <img src="https://github.com/TODO-USERNAME.png" width="100px;" alt=""/>
+        <br />
+        <sub><b>허성우</b></sub>
+      </a>
+      <br />
+      <code>heoseongwoo/</code>
+    </td>
+  </tr>
+</table>
 
 ## Study Info
 - **기간**: 4~5주
