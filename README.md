@@ -25,7 +25,7 @@ AWS 13기 Kubernetes 스터디 레포지터리입니다.
         <sub><b>고동희</b></sub>
       </a>
       <br />
-      <code>godonghi/</code>
+      <code>godonghee/</code>
     </td>
     <td align="center">
       <a href="https://github.com/jentlefish">
