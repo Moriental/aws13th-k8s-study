@@ -49,7 +49,7 @@ AWS 13기 Kubernetes 스터디 레포지터리입니다.
 ```
 .
 ├── kimyoungwoo/    # 김영우
-├── godonghi/       # 고동희
+├── godonghee/       # 고동희
 └── heoseongwoo/    # 허성우
 ```
 
