@@ -1,0 +1,121 @@
+[root@k8s-master ~]# kubectl describe cm nginx-config -n nginx-static 
+Name:         nginx-config
+Namespace:    nginx-static
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+nginx.conf:
+----
+events {}
+
+http {
+  server {
+    listen 443 ssl;
+    server_name web.k8s.local;
+
+    ssl_certificate /etc/nginx/ssl/tls.crt;
+    ssl_certificate_key /etc/nginx/ssl/tls.key;
+
+    ssl_protocols TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location / {
+      return 200 "OK\n";
+    }
+  }
+}
+
+
+
+BinaryData
+====
+
+Events:  <none>
+[root@k8s-master ~]# kubectl edit cm nginx-config -n nginx-static 
+configmap/nginx-config edited
+[root@k8s-master ~]# kubectl describe cm nginx-config -n nginx-static 
+Name:         nginx-config
+Namespace:    nginx-static
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+nginx.conf:
+----
+events {}
+
+http {
+  server {
+    listen 443 ssl;
+    server_name web.k8s.local;
+
+    ssl_certificate /etc/nginx/ssl/tls.crt;
+    ssl_certificate_key /etc/nginx/ssl/tls.key;
+
+    ssl_protocols TLSv1.3,TLSv1.2;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location / {
+      return 200 "OK\n";
+    }
+  }
+}
+
+
+
+BinaryData
+====
+
+Events:  <none>
+[root@k8s-master ~]# kubectl rollout restart deployment nginx-static -n nginx-static
+deployment.apps/nginx-static restarted
+[root@k8s-master ~]# curl -k --tls-max 1.2 https://web.k8s.local:30007
+curl: (35) error:0A00042E:SSL routines::tlsv1 alert protocol version
+[root@k8s-master ~]# kubectl edit cm nginx-config -n nginx-static 
+configmap/nginx-config edited
+[root@k8s-master ~]# kubectl describe cm nginx-config -n nginx-static 
+Name:         nginx-config
+Namespace:    nginx-static
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+nginx.conf:
+----
+events {}
+
+http {
+  server {
+    listen 443 ssl;
+    server_name web.k8s.local;
+
+    ssl_certificate /etc/nginx/ssl/tls.crt;
+    ssl_certificate_key /etc/nginx/ssl/tls.key;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location / {
+      return 200 "OK\n";
+    }
+  }
+}
+
+
+
+BinaryData
+====
+
+Events:  <none>
+[root@k8s-master ~]# kubectl rollout restart deployment nginx-static -n nginx-static
+deployment.apps/nginx-static restarted
+[root@k8s-master ~]# kubectl get pod -n nginx-static
+NAME                            READY   STATUS    RESTARTS   AGE
+nginx-static-6589bb777d-qhn9l   1/1     Running   0          6s
+[root@k8s-master ~]# curl -k --tls-max 1.2 https://web.k8s.local:30007
+OK
+[root@k8s-master ~]# 
