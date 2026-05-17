@@ -65,9 +65,6 @@ kubectl get pv
 
 문제에서 제공한 `~/mariadb-deploy.yaml` 파일을 수정한다.
 
-기존 Deployment는 `mariadb-pvc`라는 PVC를 참조하고 있으므로,  
-문제에서 생성한 PVC 이름인 `mariadb`로 변경한다.
-
 ```yaml
 volumes:
   - name: mysql-persistent-storage
@@ -92,14 +89,6 @@ kubectl get pods -n mariadb
 kubectl get deploy -n mariadb
 ```
 
-정상적으로 완료되면 아래 상태를 확인할 수 있다.
-
-```text
-PVC        Bound
-PV         Bound
-Pod        Running
-Deployment READY 1/1
-```
 
 ## 실제 출력 결과
 
