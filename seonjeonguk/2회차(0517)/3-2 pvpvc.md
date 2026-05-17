@@ -100,3 +100,17 @@ PV         Bound
 Pod        Running
 Deployment READY 1/1
 ```
+
+## 실제 출력 결과
+
+[cka0001@k8s-master 2회차]$ kubectl get all -n mariadb
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/mariadb-5b556fdf59-24ss2   1/1     Running   0          2m44s
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mariadb   1/1     1            1           17m
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/mariadb-5b556fdf59   1         1         1       2m44s
+replicaset.apps/mariadb-7b6f6cc6b5   0         0         0       17m
+
